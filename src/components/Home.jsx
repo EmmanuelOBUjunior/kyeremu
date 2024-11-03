@@ -8,7 +8,7 @@ export default function Home() {
       </h1>
       <h3>
         Record <span className="text-blue-400"><i class="fa-solid fa-arrow-right"></i></span> Transcribe{" "}
-        <span className="text-blue-400"><i class="fa-solid fa-arrow-right"></i></span> Translate
+         <span className="text-blue-400"><i class="fa-solid fa-arrow-right"></i></span> Translate
       </h3>
     </main>
   );
