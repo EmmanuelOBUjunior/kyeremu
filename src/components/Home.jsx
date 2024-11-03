@@ -41,6 +41,10 @@ export default function Home({ setFile, setAudioStream }) {
       setRecordingStatus("inactive")
       console.log("Stop recording")
       mediaRecoder.current.stop()
+      mediaRecoder.current.onstop = ()=>{
+        let audioBlob = new  Blob(audioChunks, {type:mimeType})
+        setAudioStream(audioBlob)
+      }
     }
 
   return (
