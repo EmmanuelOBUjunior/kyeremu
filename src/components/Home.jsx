@@ -10,6 +10,10 @@ export default function Home({ setFile, setAudioStream }) {
 
     useEffect(()=>{
      if(recordingStatus === "inactive") return 
+     const interval = setInterval(()=>{
+        setDuration(curr => curr +1)
+     }, 1000)
+     return ()=>clearInterval(interval)
     })
 
 
