@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 export default function Home({ setFile, setAudioStream }) {
     const [recordingStatus, setRecordingStatus] = useState('inactive') 
     const [audioChunks, setaudioChunks] = useState('inactive') 
     const [duration, setDuration] = useState('inactive') 
-    
+    const mediaRecoder = useRef()
     const mimeType = 'audio/webm'
 
   return (
