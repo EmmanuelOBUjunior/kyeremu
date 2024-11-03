@@ -21,8 +21,17 @@ export default function Home({ setFile, setAudioStream }) {
           console.log(err.message)
           return
         }
-        
+
+        //create new media recorder instance using the stream
         const media = new MediaRecorder(tempStream, {type:mimeType})
+        mediaRecoder.current = media
+
+        mediaRecoder.current.start()
+        let localAudioChunks = []
+        mediaRecoder.current.ondataavailable = (event)=>{
+          if(typeof event.data === "undefined") return
+          if (event.data.size === 0) return
+        }
     }
 
   return (
