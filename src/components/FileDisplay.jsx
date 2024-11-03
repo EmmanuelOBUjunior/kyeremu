@@ -11,6 +11,7 @@ export default function FileDisplay({ file, audioStream, handleAudioReset }) {
       </div>
       <div className="flex items-center justify-between gap-4">
         <button className="text-slate-400">Reset</button>
+        <button className="specialBtn px-4 py-2 rounded-lg text-blue-400">Transcribe</button>
       </div>
     </main>
   );
