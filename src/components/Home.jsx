@@ -1,61 +1,59 @@
 import React, { useEffect, useRef, useState } from "react";
 
 export default function Home({ setFile, setAudioStream }) {
-    const [recordingStatus, setRecordingStatus] = useState('inactive') 
-    const [audioChunks, setAudioChunks] = useState([]) 
-    const [duration, setDuration] = useState(0) 
-    const mediaRecoder = useRef(null)
-    const mimeType = 'audio/webm'
+  const [recordingStatus, setRecordingStatus] = useState("inactive");
+  const [audioChunks, setAudioChunks] = useState([]);
+  const [duration, setDuration] = useState(0);
+  const mediaRecoder = useRef(null);
+  const mimeType = "audio/webm";
 
+  useEffect(() => {
+    if (recordingStatus === "inactive") return;
+    const interval = setInterval(() => {
+      setDuration((curr) => curr + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  });
 
-    useEffect(()=>{
-     if(recordingStatus === "inactive") return 
-     const interval = setInterval(()=>{
-        setDuration(curr => curr +1)
-     }, 1000)
-     return ()=>clearInterval(interval)
-    })
-
-
-    async function startRecording() {
-        let tempStream
-        console.log("Start Recording")
-        try {
-          const streamData = navigator.mediaDevices.getUserMedia({
-            audio:true,
-            video: false
-          })
-          tempStream = streamData
-        } catch (error) {
-          console.log(err.message)
-          return
-        }
-        setRecordingStatus("recording")
-
-        //create new media recorder instance using the stream
-        const media = new MediaRecorder(tempStream, {type:mimeType})
-        mediaRecoder.current = media
-
-        mediaRecoder.current.start()
-        let localAudioChunks = []
-        mediaRecoder.current.ondataavailable = (event)=>{
-          if(typeof event.data === "undefined") return
-          if (event.data.size === 0) return
-          localAudioChunks.push(event.data)
-        }
-        setAudioChunks(localAudioChunks)
+  async function startRecording() {
+    let tempStream;
+    console.log("Start Recording");
+    try {
+      const streamData = navigator.mediaDevices.getUserMedia({
+        audio: true,
+        video: false,
+      });
+      tempStream = streamData;
+    } catch (error) {
+      console.log(err.message);
+      return;
     }
+    setRecordingStatus("recording");
 
-    async function stopRecording() {
-      setRecordingStatus("inactive")
-      console.log("Stop recording")
-      mediaRecoder.current.stop()
-      mediaRecoder.current.onstop = ()=>{
-        let audioBlob = new  Blob(audioChunks, {type:mimeType})
-        setAudioStream(audioBlob)
-        setAudioChunks([])
-      }
-    }
+    //create new media recorder instance using the stream
+    const media = new MediaRecorder(tempStream, { type: mimeType });
+    mediaRecoder.current = media;
+
+    mediaRecoder.current.start();
+    let localAudioChunks = [];
+    mediaRecoder.current.ondataavailable = (event) => {
+      if (typeof event.data === "undefined") return;
+      if (event.data.size === 0) return;
+      localAudioChunks.push(event.data);
+    };
+    setAudioChunks(localAudioChunks);
+  }
+
+  async function stopRecording() {
+    setRecordingStatus("inactive");
+    console.log("Stop recording");
+    mediaRecoder.current.stop();
+    mediaRecoder.current.onstop = () => {
+      let audioBlob = new Blob(audioChunks, { type: mimeType });
+      setAudioStream(audioBlob);
+      setAudioChunks([]);
+    };
+  }
 
   return (
     <main className="flex-1 p-4 gap-3 sm:gap-4 md:gap-5 flex flex-col justify-center text-center pb-20">
@@ -81,7 +79,14 @@ export default function Home({ setFile, setAudioStream }) {
         Or{" "}
         <label className="text-blue-400 cursor-pointer hover:text-blue-600 duration-200">
           upload
-          <input type="file" accept=".mp3,.wave" className="hidden" onChange={(e)=>{setFile(e.target.files[0])}}/>
+          <input
+            type="file"
+            accept=".mp3,.wave"
+            className="hidden"
+            onChange={(e) => {
+              setFile(e.target.files[0]);
+            }}
+          />
         </label>{" "}
         a mp3 file
       </p>
