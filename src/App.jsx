@@ -6,7 +6,7 @@ function App() {
           <h1>
             Kyere<span className="text-blue-400">Mu</span>
           </h1>
-          <button>
+          <button className="flex items-center gap-2">
             <p>New</p>
             <i class="fa-solid fa-plus"></i>
           </button>
