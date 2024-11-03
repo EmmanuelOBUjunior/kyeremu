@@ -8,8 +8,9 @@ export default function Home({ setFile, setAudioStream }) {
     const mimeType = 'audio/webm'
 
 
-    async function startRecording(params) {
-        
+    async function startRecording() {
+        let tempStream
+        console.log("Start Recording")
     }
 
   return (
