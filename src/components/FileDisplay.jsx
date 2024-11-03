@@ -16,7 +16,7 @@ export default function FileDisplay({ file, audioStream, handleAudioReset }) {
         >
           Reset
         </button>
-        <button className="specialBtn p-2 flex items-center gap-2 font-medium rounded-lg text-blue-400">
+        <button className="specialBtn py-2 px-3 flex items-center gap-2 font-medium rounded-lg text-blue-400">
           <p>Transcribe</p>
           <i className="fa-solid fa-pen-nib"></i>
         </button>
