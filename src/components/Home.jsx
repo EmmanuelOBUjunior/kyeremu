@@ -7,8 +7,8 @@ export default function Home() {
         Kyere<span className="text-blue-400 bold">Mu</span>
       </h1>
       <h3>
-        Record <span className="text-blue-400"><i class="fa-solid fa-arrow-right"></i></span> Transcribe{" "}
-         <span className="text-blue-400"><i class="fa-solid fa-arrow-right"></i></span> Translate
+        Record <span className="text-blue-400 mx-1"><i class="fa-solid fa-arrow-right"></i></span> Transcribe{" "}
+        <span className="text-blue-400 mx-1"><i class="fa-solid fa-arrow-right"></i></span> Translate
       </h3>
     </main>
   );
