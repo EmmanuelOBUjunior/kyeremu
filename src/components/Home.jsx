@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Home() {
   return (
-    <main className="flex-1 p-4 gap-3 sm:gap-4 md:gap-5 flex flex-col justify-center text-center">
+    <main className="flex-1 p-4 gap-3 sm:gap-4 md:gap-5 flex flex-col justify-center text-center pb-20">
       <h1 className="font-bold text-5xl sm:text-6xl md:text-7xl">
         Kyere<span className="text-blue-400 bold">Mu</span>
       </h1>
@@ -17,6 +17,7 @@ export default function Home() {
         </span>{" "}
         Translate
       </h3>
+      <button><p>Record</p><i class="fa-solid fa-microphone"></i></button>
     </main>
   );
 }
