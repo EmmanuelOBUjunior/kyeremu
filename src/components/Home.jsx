@@ -21,6 +21,7 @@ export default function Home({ setFile, setAudioStream }) {
           console.log(err.message)
           return
         }
+        setRecordingStatus("recording")
 
         //create new media recorder instance using the stream
         const media = new MediaRecorder(tempStream, {type:mimeType})
