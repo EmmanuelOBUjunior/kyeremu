@@ -6,7 +6,7 @@ export default function Home() {
       <h1 className="font-bold text-5xl sm:text-6xl md:text-7xl">
         Kyere<span className="text-blue-400 bold">Mu</span>
       </h1>
-      <h3>Record</h3>
+      <h3>Record <span>&rarr;</span> Transcribe <span>&rarr;</span> Translate</h3>
     </main>
   );
 }
