@@ -29,7 +29,7 @@ export default function Home({ setFile, setAudioStream }) {
         </label>{" "}
         a mp3 file
       </p>
-      <p className="text-slate-500 italic">Free Now...Free Forever</p>
+      <p className="text-slate-400 italic">Free Now...Free Forever</p>
     </main>
   );
 }
