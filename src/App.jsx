@@ -11,7 +11,7 @@ function App() {
             <i class="fa-solid fa-plus"></i>
           </button>
         </header>
-        <main className="flex-1 bg-red-50 p-4 justify-center"> Testitng</main>
+        <main className="flex-1 bg-red-50 p-4 justify-center"> Testing</main>
       </section>
       <footer></footer>
     </div>
