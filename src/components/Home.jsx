@@ -22,6 +22,7 @@ export default function Home() {
         <i class="fa-solid fa-microphone"></i>
       </button>
       <p className="text-base">Or <label className="text-blue-400 cursor-pointer hover:text-blue-600 duration-200">upload<input type = "file" accept=".mp3,.wave" className="hidden"/></label> a mp3 file</p>
+      <p>Free Now Free Forever</p>
     </main>
   );
 }
