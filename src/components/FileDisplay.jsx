@@ -5,8 +5,8 @@ export default function FileDisplay({file, audioStream, handleAudioReset}) {
         <h1 className="font-bold text-5xl sm:text-6xl md:text-7xl">
         Your<span className="text-blue-400 bold"> File</span>
       </h1>
-      <div className="flex items-center gap-2">
-        <h3 className="font-semibold"></h3>
+      <div className="mx-auto flex items-center gap-2">
+        <h3 className="font-semibold">Name</h3>
       </div>
     </main>
   )
