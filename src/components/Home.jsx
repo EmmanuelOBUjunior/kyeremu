@@ -8,7 +8,9 @@ export default function Home({ setFile, setAudioStream }) {
     const mimeType = 'audio/webm'
 
 
-    
+    async function startRecording(params) {
+        
+    }
 
   return (
     <main className="flex-1 p-4 gap-3 sm:gap-4 md:gap-5 flex flex-col justify-center text-center pb-20">
