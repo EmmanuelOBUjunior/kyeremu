@@ -17,7 +17,7 @@ export default function Home() {
         </span>{" "}
         Translate
       </h3>
-      <button className="felx items-center text-base justify-between gap-4 mx-auto max-w-full w-72 my-4">
+      <button className="flex items-center text-base justify-between gap-4 mx-auto max-w-full w-72 my-4">
         <p>Record</p>
         <i class="fa-solid fa-microphone"></i>
       </button>
