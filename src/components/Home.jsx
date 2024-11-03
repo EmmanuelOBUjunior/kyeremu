@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function Home({ setFile, setAudioStream }) {
     const [recordingStatus, setRecordingStatus] = useState('inactive') 
@@ -6,6 +6,11 @@ export default function Home({ setFile, setAudioStream }) {
     const [duration, setDuration] = useState(0) 
     const mediaRecoder = useRef(null)
     const mimeType = 'audio/webm'
+
+
+    useEffect(()=>{
+     if(recordingStatus === "inactive") return 
+    })
 
 
     async function startRecording() {
