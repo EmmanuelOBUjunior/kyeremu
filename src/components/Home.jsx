@@ -4,7 +4,7 @@ export default function Home({ setFile, setAudioStream }) {
     const [recordingStatus, setRecordingStatus] = useState('inactive') 
     const [audioChunks, setaudioChunks] = useState('inactive') 
     const [duration, setDuration] = useState('inactive') 
-    const mediaRecoder = useRef()
+    const mediaRecoder = useRef(null)
     const mimeType = 'audio/webm'
 
   return (
