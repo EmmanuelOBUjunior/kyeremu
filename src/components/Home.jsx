@@ -38,7 +38,8 @@ export default function Home({ setFile, setAudioStream }) {
     }
 
     async function stopRecording() {
-      setRecordingStatus("")
+      setRecordingStatus("inactive")
+      console.log("Stop recording")
     }
 
   return (
