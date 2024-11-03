@@ -21,7 +21,8 @@ export default function Home({ setFile, setAudioStream }) {
           console.log(err.message)
           return
         }
-        const media = new MediaRecorder
+        
+        const media = new MediaRecorder(tempStream, {type:mimeType})
     }
 
   return (
