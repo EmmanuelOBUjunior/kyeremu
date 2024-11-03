@@ -14,7 +14,7 @@ function App() {
       <section className="min-h-screen flex flex-col">
         <Nav />
         {isAvailable ? (
-          <FileDisplay />
+          <FileDisplay file={file} audioStream={audioStream}/>
         ) : (
           <Home setFile={setFile} setAudioStream={setAudioStream} />
         )}
