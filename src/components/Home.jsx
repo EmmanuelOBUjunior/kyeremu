@@ -25,7 +25,7 @@ export default function Home({ setFile, setAudioStream }) {
         Or{" "}
         <label className="text-blue-400 cursor-pointer hover:text-blue-600 duration-200">
           upload
-          <input type="file" accept=".mp3,.wave" className="hidden" onChange={(e)=>{setFile(e.target.value[0])}}/>
+          <input type="file" accept=".mp3,.wave" className="hidden" onChange={(e)=>{setFile(e.target.files[0])}}/>
         </label>{" "}
         a mp3 file
       </p>
