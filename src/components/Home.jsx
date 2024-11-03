@@ -52,6 +52,7 @@ export default function Home({ setFile, setAudioStream }) {
       let audioBlob = new Blob(audioChunks, { type: mimeType });
       setAudioStream(audioBlob);
       setAudioChunks([]);
+      setDuration(0)
     };
   }
 
@@ -72,7 +73,7 @@ export default function Home({ setFile, setAudioStream }) {
         Translate
       </h3>
       <button className="specialBtn px-4 py-2 rounded-xl flex items-center text-base justify-between gap-4 mx-auto max-w-full w-72 my-4">
-        <p className="text-blue-400">Record</p>
+        <p className="text-blue-400">{recordingStatus === "inactive"? "Record" : `Stop recording`}</p>
         <i className="fa-solid fa-microphone"></i>
       </button>
       <p className="text-base">
