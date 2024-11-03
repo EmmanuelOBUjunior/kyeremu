@@ -75,7 +75,7 @@ export default function Home({ setFile, setAudioStream }) {
       <button className="specialBtn px-4 py-2 rounded-xl flex items-center text-base justify-between gap-4 mx-auto max-w-full w-72 my-4">
         <p className="text-blue-400">{recordingStatus === "inactive"? "Record" : `Stop recording`}</p>
         <div className="flex items-center gap-2">
-
+            {duration !== 0 && (<p>{duration}s</p>)}
         </div>
         <i className="fa-solid fa-microphone"></i>
       </button>
