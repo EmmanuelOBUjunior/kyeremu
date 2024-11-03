@@ -11,6 +11,17 @@ export default function Home({ setFile, setAudioStream }) {
     async function startRecording() {
         let tempStream
         console.log("Start Recording")
+        try {
+          const streamData = navigator.mediaDevices.getUserMedia({
+            audio:true,
+            video: false
+          })
+          tempStream = streamData
+        } catch (error) {
+          console.log(err.message)
+          return
+        }
+        const media = new MediaRecorder
     }
 
   return (
