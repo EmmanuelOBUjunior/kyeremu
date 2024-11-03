@@ -1,3 +1,5 @@
+import Home from "./components/Home";
+
 function App() {
   return (
     <div className="flex flex-col max-w-[1000px] mx-auto w-full">
@@ -11,7 +13,7 @@ function App() {
             <i class="fa-solid fa-plus"></i>
           </button>
         </header>
-        
+        <Home/>
       </section>
       <footer></footer>
     </div>
