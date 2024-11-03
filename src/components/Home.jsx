@@ -7,7 +7,7 @@ export default function Home() {
         Kyere<span className="text-blue-400 bold">Mu</span>
       </h1>
       <h3>
-        Record <span>&rarr;</span> Transcribe <span>&rarr;</span> Translate
+        Record <span className="text-blue-400">&rarr;</span> Transcribe <span>&rarr;</span> Translate
       </h3>
     </main>
   );
