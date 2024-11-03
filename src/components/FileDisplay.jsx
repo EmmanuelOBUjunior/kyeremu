@@ -10,7 +10,7 @@ export default function FileDisplay({ file, audioStream, handleAudioReset }) {
         <p>{file.name}</p>
       </div>
       <div className="flex items-center justify-between gap-4">
-        <button>Reset</button>
+        <button className="text-slate-400">Reset</button>
       </div>
     </main>
   );
