@@ -40,6 +40,7 @@ export default function Home({ setFile, setAudioStream }) {
     async function stopRecording() {
       setRecordingStatus("inactive")
       console.log("Stop recording")
+      mediaRecoder.current.stop()
     }
 
   return (
