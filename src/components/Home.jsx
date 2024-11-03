@@ -21,7 +21,7 @@ export default function Home() {
         <p>Record</p>
         <i class="fa-solid fa-microphone"></i>
       </button>
-      <p>Or <label className="text-blue cursor-pointer hoverr-text-blule-600">upload</label></p>
+      <p>Or <label className="text-blue-400 cursor-pointer hover:text-blue-600">upload</label></p>
     </main>
   );
 }
