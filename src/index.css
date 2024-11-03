@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 *{
-    font-family: 'Open Sans', sans-serif
+    font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, .bold{
+    font-family: "Merriweather Sans", sans-serif;
 }
