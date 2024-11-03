@@ -10,7 +10,7 @@ export default function FileDisplay({ file, audioStream, handleAudioReset }) {
         <p>{file.name}</p>
       </div>
       <div className="flex items-center justify-between gap-4">
-        <button className="text-slate-400 hover:text-blue-500 duration-200">Reset</button>
+        <button className="text-slate-400 hover:text-blue-500 duration-200" onClick={handleAudioReset}>Reset</button>
         <button className="specialBtn px-4 py-2 rounded-lg text-blue-400"><p>Transcribe</p></button>
       </div>
     </main>
