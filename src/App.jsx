@@ -1,6 +1,6 @@
 function App() {
   return (
-    <div className="flex flex-col p-4 max-w-[1000px]">
+    <div className="flex flex-col p-4 max-w-[1000px] mx-auto w-full">
       <section className="min-h-screen flex flex-col">
         <header className="flex items-center justify-between gap-4">
           <h1>
