@@ -7,11 +7,13 @@ function App() {
             Kyere<span className="text-blue-400">Mu</span>
           </h1>
           <button>
-            <p>New</p><i class="fa-solid fa-plus"></i>
+            <p>New</p>
+            <i class="fa-solid fa-plus"></i>
           </button>
         </header>
-        <main></main>
+        <main className="flex-1"></main>
       </section>
+      <footer></footer>
     </div>
   );
 }
