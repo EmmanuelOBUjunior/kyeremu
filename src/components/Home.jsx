@@ -21,7 +21,7 @@ export default function Home() {
         <p>Record</p>
         <i class="fa-solid fa-microphone"></i>
       </button>
-      <p>Or <label className="text-blue-400 cursor-pointer hover:text-blue-600 duration-200">upload</label></p>
+      <p>Or <label className="text-blue-400 cursor-pointer hover:text-blue-600 duration-200">upload<input type = "file" accept=".mp3,.wave" className="hidden"/></label> a mp3 file</p>
     </main>
   );
 }
