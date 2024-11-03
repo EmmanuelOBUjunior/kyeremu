@@ -44,6 +44,7 @@ export default function Home({ setFile, setAudioStream }) {
       mediaRecoder.current.onstop = ()=>{
         let audioBlob = new  Blob(audioChunks, {type:mimeType})
         setAudioStream(audioBlob)
+        setAudioChunks([])
       }
     }
 
