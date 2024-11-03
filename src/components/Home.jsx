@@ -17,8 +17,8 @@ export default function Home() {
         </span>{" "}
         Translate
       </h3>
-      <button className="flex items-center text-base justify-between gap-4 mx-auto max-w-full w-72 my-4">
-        <p>Record</p>
+      <button className="specialBtn px-4 py-2 rounded-xl flex items-center text-base justify-between gap-4 mx-auto max-w-full w-72 my-4">
+        <p className="text-blue-400">Record</p>
         <i class="fa-solid fa-microphone"></i>
       </button>
       <p className="text-base">Or <label className="text-blue-400 cursor-pointer hover:text-blue-600 duration-200">upload<input type = "file" accept=".mp3,.wave" className="hidden"/></label> a mp3 file</p>
