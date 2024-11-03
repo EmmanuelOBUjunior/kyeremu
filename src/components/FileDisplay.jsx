@@ -9,6 +9,9 @@ export default function FileDisplay({ file, audioStream, handleAudioReset }) {
         <h3 className="font-semibold">Name</h3>
         <p>{file.name}</p>
       </div>
+      <div className="flex items-center justify-between gap-4">
+        <button>Reset</button>
+      </div>
     </main>
   );
 }
