@@ -5,7 +5,7 @@ export default function Nav() {
     <h1 className="font-medium">
       Kyere<span className="text-blue-400 bold">Mu</span>
     </h1>
-    <button className="flex items-center gap-2">
+    <button className="flex items-center gap-2 specialBtn px-4 py-2 rounded-lg">
       <p>New</p>
       <i class="fa-solid fa-plus"></i>
     </button>
