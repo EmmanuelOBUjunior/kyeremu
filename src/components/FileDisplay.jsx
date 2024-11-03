@@ -1,13 +1,14 @@
-
-export default function FileDisplay({file, audioStream, handleAudioReset}) {
+export default function FileDisplay({ file, audioStream, handleAudioReset }) {
+    console.log(file)
   return (
     <main className="flex-1 p-4 gap-3 sm:gap-4 md:gap-5 flex flex-col justify-center text-center pb-20">
-        <h1 className="font-bold text-5xl sm:text-6xl md:text-7xl">
+      <h1 className="font-bold text-5xl sm:text-6xl md:text-7xl">
         Your<span className="text-blue-400 bold"> File</span>
       </h1>
-      <div className="mx-auto flex items-center gap-2">
+      <div className="mx-auto flex text-left flex-col">
         <h3 className="font-semibold">Name</h3>
+        <p>{file.name}</p>
       </div>
     </main>
-  )
+  );
 }

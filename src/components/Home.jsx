@@ -19,7 +19,7 @@ export default function Home({ setFile, setAudioStream }) {
       </h3>
       <button className="specialBtn px-4 py-2 rounded-xl flex items-center text-base justify-between gap-4 mx-auto max-w-full w-72 my-4">
         <p className="text-blue-400">Record</p>
-        <i class="fa-solid fa-microphone"></i>
+        <i className="fa-solid fa-microphone"></i>
       </button>
       <p className="text-base">
         Or{" "}
