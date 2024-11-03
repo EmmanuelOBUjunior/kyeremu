@@ -31,6 +31,7 @@ export default function Home({ setFile, setAudioStream }) {
         mediaRecoder.current.ondataavailable = (event)=>{
           if(typeof event.data === "undefined") return
           if (event.data.size === 0) return
+          localAudioChunks.push(event.data)
         }
     }
 
