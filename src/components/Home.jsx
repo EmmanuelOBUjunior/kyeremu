@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 
 export default function Home({ setFile, setAudioStream }) {
     const [recordingStatus, setRecordingStatus] = useState('inactive') 
-    const [audioChunks, setaudioChunks] = useState([]) 
+    const [audioChunks, setAudioChunks] = useState([]) 
     const [duration, setDuration] = useState(0) 
     const mediaRecoder = useRef(null)
     const mimeType = 'audio/webm'
@@ -33,6 +33,7 @@ export default function Home({ setFile, setAudioStream }) {
           if (event.data.size === 0) return
           localAudioChunks.push(event.data)
         }
+        setAudioChunks(localAudioChunks)
     }
 
   return (
