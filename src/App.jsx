@@ -8,7 +8,6 @@ function App() {
        <Nav/>
         <Home/>
       </section>
-      <footer></footer>
     </div>
   );
 }
