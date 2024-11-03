@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Home({setFile, setAudioStream}) {
+export default function Home({ setFile, setAudioStream }) {
   return (
     <main className="flex-1 p-4 gap-3 sm:gap-4 md:gap-5 flex flex-col justify-center text-center pb-20">
       <h1 className="font-bold text-5xl sm:text-6xl md:text-7xl">
@@ -21,7 +21,14 @@ export default function Home({setFile, setAudioStream}) {
         <p className="text-blue-400">Record</p>
         <i class="fa-solid fa-microphone"></i>
       </button>
-      <p className="text-base">Or <label className="text-blue-400 cursor-pointer hover:text-blue-600 duration-200">upload<input type = "file" accept=".mp3,.wave" className="hidden"/></label> a mp3 file</p>
+      <p className="text-base">
+        Or{" "}
+        <label className="text-blue-400 cursor-pointer hover:text-blue-600 duration-200">
+          upload
+          <input type="file" accept=".mp3,.wave" className="hidden" />
+        </label>{" "}
+        a mp3 file
+      </p>
       <p className="text-slate-500 italic">Free Now...Free Forever</p>
     </main>
   );
