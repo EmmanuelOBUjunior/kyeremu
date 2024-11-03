@@ -2,7 +2,7 @@ function App() {
   return (
     <div className="flex flex-col p-4 max-w-[1000px]">
       <section className="min-h-screen flex flex-col">
-        <header>
+        <header className="flex items-center justify-between">
           <h1>
             Kyere<span className="text-blue-400">Mu</span>
           </h1>
