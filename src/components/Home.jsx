@@ -81,7 +81,7 @@ export default function Home({ setFile, setAudioStream }) {
         <div className="flex items-center gap-2">
           {duration !== 0 && <p className="text-sm">{duration}s</p>}
         </div>
-        <i className="fa-solid fa-microphone"></i>
+        <i className={"fa-solid fa-microphone" + (recordingStatus === 'recording'? 'text-rose-300' : "")}></i>
       </button>
       <p className="text-base">
         Or{" "}
