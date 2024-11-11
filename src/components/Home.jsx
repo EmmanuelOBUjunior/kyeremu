@@ -52,7 +52,7 @@ export default function Home({ setFile, setAudioStream }) {
       let audioBlob = new Blob(audioChunks, { type: mimeType });
       setAudioStream(audioBlob);
       setAudioChunks([]);
-      setDuration(0)
+      setDuration(0);
     };
   }
 
@@ -73,9 +73,11 @@ export default function Home({ setFile, setAudioStream }) {
         Translate
       </h3>
       <button className="specialBtn px-4 py-2 rounded-xl flex items-center text-base justify-between gap-4 mx-auto max-w-full w-72 my-4">
-        <p className="text-blue-400">{recordingStatus === "inactive"? "Record" : `Stop recording`}</p>
+        <p className="text-blue-400">
+          {recordingStatus === "inactive" ? "Record" : `Stop recording`}
+        </p>
         <div className="flex items-center gap-2">
-            {duration !== 0 && (<p>{duration}s</p>)}
+          {duration !== 0 && <p>{duration}s</p>}
         </div>
         <i className="fa-solid fa-microphone"></i>
       </button>
@@ -84,8 +86,8 @@ export default function Home({ setFile, setAudioStream }) {
         <label className="text-blue-400 cursor-pointer hover:text-blue-600 duration-200">
           upload
           <input
-            type="file"
             accept=".mp3,.wave"
+            type="file"
             className="hidden"
             onChange={(e) => {
               setFile(e.target.files[0]);
