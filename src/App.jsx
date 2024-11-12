@@ -14,6 +14,7 @@ function App() {
   const [downloading, setDownloading] = useState(false);
   const [finished, setFinished] = useState(false);
   const worker = useRef(null);
+  const isAudioAvailable = file || audioStream;
 
   useEffect(() => {
     if (!worker.current) {
@@ -51,7 +52,6 @@ function App() {
     setFile(null);
     setAudioStream(null);
   }
-  const isAudioAvailable = file || audioStream;
 
   return (
     <div className="flex flex-col max-w-[1000px] mx-auto w-full">
