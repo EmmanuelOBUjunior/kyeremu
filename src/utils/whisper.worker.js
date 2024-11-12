@@ -50,5 +50,6 @@ async function load_model_callback(data){
     const {status} = data
     if(status === 'progress'){
         const {file, progress, loaded, total} = data
+        sendDownloadingMessage(file, progress, loaded, total)
     }
 }
