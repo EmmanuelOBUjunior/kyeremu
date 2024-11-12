@@ -84,4 +84,9 @@ class GenerationTracker {
   sendFinalResult() {
     self.postMessage({ type: MessageTypes.INFERENCE_DONE });
   }
+
+  callbackFunction(beams){
+    this.callbackFunctionCounter += 1
+  }
+
 }
