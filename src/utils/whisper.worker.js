@@ -90,7 +90,7 @@ class GenerationTracker {
     this.callbackFunctionCounter += 1;
     if (this.callbackFunctionCounter % 10 !== 0) return;
     const bestBeam = beams[0];
-    let text = this.pipeline.tokenizer.decode(bestBean.output_token_ids, {
+    let text = this.pipeline.tokenizer.decode(bestBeam.output_token_ids, {
       skip_special_tokens: true,
     });
 
@@ -104,7 +104,7 @@ class GenerationTracker {
   }
   chunkCallback(data) {
     this.chunks.push(data);
-    const [text, { chunk }] = this.pipeline.tokenizer.decode_asr(this.chunks, {
+    const [text, { chunks }] = this.pipeline.tokenizer.decode_asr(this.chunks, {
       time_precision: this.time_precision,
       return_timestamps: true,
       force_full_sequence: false,
