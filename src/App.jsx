@@ -11,15 +11,18 @@ function App() {
   const [audioStream, setAudioStream] = useState(null);
   const [output, setOutput] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [finished, setFinished] = useState(false)
-  const worker = useRef(null)
+  const [finished, setFinished] = useState(false);
+  const worker = useRef(null);
 
-
-  useEffect(()=>{
-    if(!worker.current){
-      worker.current = new Worker(new URL('./utils/whisper.worker.js'), import.meta.url, {type: 'module'})
+  useEffect(() => {
+    if (!worker.current) {
+      worker.current = new Worker(
+        new URL("./utils/whisper.worker.js"),
+        import.meta.url,
+        { type: "module" }
+      );
     }
-  },[])
+  }, []);
 
   function handleAudioReset() {
     setFile(null);
