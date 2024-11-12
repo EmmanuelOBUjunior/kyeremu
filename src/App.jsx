@@ -59,6 +59,7 @@ function App() {
     const response = await file.arrayBuffer()
     const decoded = await audioCTX.decodeAudioData(response)
     const audio = decoded.getChannelData(0)
+    return audio
   }
 
   return (
