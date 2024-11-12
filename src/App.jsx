@@ -11,6 +11,7 @@ function App() {
   const [audioStream, setAudioStream] = useState(null);
   const [output, setOutput] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [downloading, setDownloading] = useState(false);
   const [finished, setFinished] = useState(false);
   const worker = useRef(null);
 
@@ -27,8 +28,11 @@ function App() {
       switch (e.data.type) {
         case 'DOWNLOADING':
           setDownloading(true)
+          console.log("DOWNLOADING")
           break;
-      
+        case 'LOADING':
+          setLoading(true)
+          break;
         default:
           break;
       }
