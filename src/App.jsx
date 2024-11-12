@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
@@ -12,6 +12,12 @@ function App() {
   const [output, setOutput] = useState(null);
   const [loading, setLoading] = useState(false);
   const [finished, setFinished] = useState(false)
+  const worker = useRef(null)
+
+
+  useEffect(()=>{
+    
+  },[])
 
   function handleAudioReset() {
     setFile(null);
