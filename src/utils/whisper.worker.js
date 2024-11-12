@@ -85,9 +85,10 @@ class GenerationTracker {
     self.postMessage({ type: MessageTypes.INFERENCE_DONE });
   }
 
-  callbackFunction(beams){
+  callbackFunction(beans){
     this.callbackFunctionCounter += 1
     if(this.callbackFunctionCounter % 10 !== 0) return
   }
 
+    const bestBean = 
 }
