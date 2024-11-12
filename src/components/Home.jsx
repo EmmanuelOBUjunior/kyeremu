@@ -74,7 +74,7 @@ export default function Home({ setFile, setAudioStream }) {
         </span>{" "}
         Translate
       </h3>
-      <button className="specialBtn px-4 py-2 rounded-xl flex items-center text-base justify-between gap-4 mx-auto max-w-full w-72 my-4">
+      <button onClick={recordingStatus === 'recording' ? stopRecording() : startRecording()} className="specialBtn px-4 py-2 rounded-xl flex items-center text-base justify-between gap-4 mx-auto max-w-full w-72 my-4">
         <p className="text-blue-400">
           {recordingStatus === "inactive" ? "Record" : `Stop recording`}
         </p>
