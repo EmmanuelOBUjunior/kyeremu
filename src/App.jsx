@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
@@ -9,17 +9,23 @@ function App() {
   const [audioStream, setAudioStream] = useState(null);
 
   function handleAudioReset() {
-    setFile(null)
-    setAudioStream(null)
+    setFile(null);
+    setAudioStream(null);
   }
   const isAvailable = file || audioStream;
+
+  useEffect(() => {}, [audioStream]);
 
   return (
     <div className="flex flex-col max-w-[1000px] mx-auto w-full">
       <section className="min-h-screen flex flex-col">
         <Nav />
         {isAvailable ? (
-          <FileDisplay handleAudioReset= {handleAudioReset} file={file} audioStream={audioStream}/>
+          <FileDisplay
+            handleAudioReset={handleAudioReset}
+            file={file}
+            audioStream={audioStream}
+          />
         ) : (
           <Home setFile={setFile} setAudioStream={setAudioStream} />
         )}
