@@ -16,7 +16,9 @@ class MyTranscriptionPipeline {
 
 self.addEventListener("message", async (e) => {
   const { type, audio } = e.data;
-  if (type === MessageTypes.INFERENCE_REQUEST) await transcribe(audio);
+  if (type === MessageTypes.INFERENCE_REQUEST) {
+    await transcribe(audio);
+  }
 });
 
 async function transcribe(audio) {
