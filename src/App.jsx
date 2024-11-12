@@ -33,20 +33,21 @@ function App() {
           break;
         case "LOADING":
           setLoading(true);
-          console.log("LOADING")
+          console.log("LOADING");
           break;
         case "RESULT":
           setOutput(e.data.results);
-          console.log(e.data.results)
+          console.log(e.data.results);
         case "INFERENCE_DONE":
           setFinished(true);
-          console.log("DONE")
+          console.log("DONE");
           break;
       }
     };
 
-    worker.current.addEventListener('message', onMessageReceived)
-    return () => worker.current.removeEventListener('message', onMessageReceived)
+    worker.current.addEventListener("message", onMessageReceived);
+    return () =>
+      worker.current.removeEventListener("message", onMessageReceived);
   });
 
   function handleAudioReset() {
@@ -85,7 +86,7 @@ function App() {
           <Transcribing />
         ) : isAudioAvailable ? (
           <FileDisplay
-          handleFormSubmission = {handleFormSubmission}
+            handleFormSubmission={handleFormSubmission}
             handleAudioReset={handleAudioReset}
             file={file}
             audioStream={audioStream}
