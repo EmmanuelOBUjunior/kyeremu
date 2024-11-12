@@ -132,8 +132,11 @@ class GenerationTracker {
 
     getLastChunkTimestamp() {
         if (this.processed_chunks.length === 0) {
-            return 0
+            return 0;
         }
+        // Add missing return statement to get the last chunk's end time
+        const lastChunk = this.processed_chunks[this.processed_chunks.length - 1];
+        return lastChunk.end;
     }
 
     processChunk(chunk, index) {
