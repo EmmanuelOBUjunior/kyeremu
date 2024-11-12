@@ -48,4 +48,7 @@ async function transcribe(audio) {
 
 async function load_model_callback(data){
     const {status} = data
+    if(status === 'progress'){
+        const {file, progress, loaded, total} = data
+    }
 }
