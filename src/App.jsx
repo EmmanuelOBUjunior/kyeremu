@@ -64,6 +64,7 @@ function App() {
 
   async function handleFormSubmission() {
     if (!file && audioStream) return;
+    let audio = await readAudiofrom(file ? file : audioStream)
   }
 
   return (
