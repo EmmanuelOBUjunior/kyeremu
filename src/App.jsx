@@ -74,7 +74,7 @@ function App() {
     worker.current.postMessage({
       type: MessageTypes.INFERENCE_REQUEST,
       audio,
-      model_name
+      model_name,
     });
   }
 
