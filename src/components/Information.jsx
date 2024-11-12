@@ -5,6 +5,7 @@ export default function Information() {
       <h1 className="font-bold text-5xl sm:text-6xl md:text-7xl">
         Your<span className="text-blue-400 bold"> File</span>
       </h1>
+      
       </main>
   )
 }
