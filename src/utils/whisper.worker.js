@@ -142,3 +142,10 @@ class GenerationTracker {
     })
   }
 
+  function createPartialResultMessage(result) {
+    self.postMessage({
+        type: MessageTypes.RESULT_PARTIAL,
+        result
+    })
+  }
+
