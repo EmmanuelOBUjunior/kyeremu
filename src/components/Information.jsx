@@ -9,7 +9,7 @@ export default function Information() {
       </h1>
         <div className="flex mx-auto bg-white border-2 border-solid border-blue-300 shadow rounded-full overflow-hidden items center gap-2">
             <button className={"px-4 py-1 font-medium "+ (tab === 'transcription' ? 'bg-blue-500 text-white' : ' text-blue-400 hover:text-blue-600')}>Transcription</button>
-            <button className="px-4 py-1 font-medium">Translation</button>
+            <button className={"px-4 py-1 font-medium" + (tab === 'translation' ? 'bg-blue-500 text-white': 'text-blue-500 hover:text-blue-600')}>Translation</button>
         </div>
       </main>
   )
