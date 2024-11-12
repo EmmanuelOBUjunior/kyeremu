@@ -45,7 +45,7 @@ function App() {
     worker.current.addEventListener("message", onMessageReceived);
 
     return () =>
-      worker.current.removeEventListner("message", onMessageReceived);
+      worker.current.removeEventListener("message", onMessageReceived);
   });
 
   function handleAudioReset() {
