@@ -40,6 +40,7 @@ function App() {
           console.log(e.data.results)
         case "INFERENCE_DONE":
           setFinished(true);
+          console.log("DONE")
           break;
       }
     };
