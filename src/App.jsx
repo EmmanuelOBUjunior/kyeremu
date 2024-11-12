@@ -41,6 +41,10 @@ function App() {
       }
     }
 
+    worker.current.addEventListener('message', onMessageReceived)
+
+    return () => worker.current.removeEventListner('')
+
   }, []);
 
   function handleAudioReset() {
