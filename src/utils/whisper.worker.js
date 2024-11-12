@@ -12,3 +12,8 @@ class MyTranscriptionPipeline {
     return this.instance
   }
 }
+
+
+self.addEventListener('message', async (e)=>{
+    const {type, audio} = e.data
+})
