@@ -26,7 +26,15 @@ function App() {
     <div className="flex flex-col max-w-[1000px] mx-auto w-full">
       <section className="min-h-screen flex flex-col">
         <Nav />
-        {output ? <Information/> : loading ? <Transcribing/> : isAvailable ? }
+        {output ? <Information/> : loading ? <Transcribing/> : isAvailable ? (
+          <FileDisplay
+            handleAudioReset={handleAudioReset}
+            file={file}
+            audioStream={audioStream}
+          />
+        ) : (
+          <Home setFile={setFile} setAudioStream={setAudioStream} />
+        )}
         {isAvailable ? (
           <FileDisplay
             handleAudioReset={handleAudioReset}
