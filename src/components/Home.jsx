@@ -70,7 +70,7 @@ export default function Home({ setFile, setAudioStream }) {
         </span>{" "}
         Transcribe{" "}
         <span className="text-blue-400 mx-1">
-          <i class="fa-solid fa-arrow-right"></i>
+          <i className="fa-solid fa-arrow-right"></i>
         </span>{" "}
         Translate
       </h3>
