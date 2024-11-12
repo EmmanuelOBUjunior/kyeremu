@@ -11,6 +11,7 @@ function App() {
   const [audioStream, setAudioStream] = useState(null);
   const [output, setOutput] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [finished, setFinished] = useState(false)
 
   function handleAudioReset() {
     setFile(null);
