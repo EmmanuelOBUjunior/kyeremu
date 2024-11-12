@@ -108,7 +108,7 @@ class GenerationTracker {
         {
             time_precision: this.time_precision,
             return_timestamps: true,
-            force_full_sequence = false
+            force_full_sequence : false
         }
     )
   }
