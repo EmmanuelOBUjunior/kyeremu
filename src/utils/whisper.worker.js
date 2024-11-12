@@ -133,7 +133,7 @@ class GenerationTracker {
   }
 }
 
-  function createPartialResultMessage(results, isDone, completedUntilTimestamp) {
+  function createResultMessage(results, isDone, completedUntilTimestamp) {
     self.postMessage({
         type: MessageTypes.RESULT,
         results,
