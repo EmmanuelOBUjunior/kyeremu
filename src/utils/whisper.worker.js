@@ -23,31 +23,43 @@ self.addEventListener('message', async (event) => {
 })
 
 async function transcribe(audio) {
-    sendLoadingMessage('loading')
-
-    let pipeline
-
-    try {
-        pipeline = await MyTranscriptionPipeline.getInstance(load_model_callback)
-    } catch (err) {
-        console.log(err.message)
+    if (!audio) {
+        throw new Error('No audio input provided');
     }
 
-    sendLoadingMessage('success')
+    let pipeline;
+    
+    try {
+        sendLoadingMessage('loading');
+        pipeline = await MyTranscriptionPipeline.getInstance(load_model_callback);
+    } catch (err) {
+        console.error('Pipeline initialization failed:', err);
+        sendLoadingMessage('error');
+        throw err;
+    }
 
-    const stride_length_s = 5
+    sendLoadingMessage('success');
 
-    const generationTracker = new GenerationTracker(pipeline, stride_length_s)
-    await pipeline(audio, {
-        top_k: 0,
-        do_sample: false,
-        chunk_length: 30,
-        stride_length_s,
-        return_timestamps: true,
-        callback_function: generationTracker.callbackFunction.bind(generationTracker),
-        chunk_callback: generationTracker.chunkCallback.bind(generationTracker)
-    })
-    generationTracker.sendFinalResult()
+    const stride_length_s = 5;
+    const generationTracker = new GenerationTracker(pipeline, stride_length_s);
+    
+    try {
+        await pipeline(audio, {
+            top_k: 0,
+            do_sample: false,
+            chunk_length: 30,
+            stride_length_s,
+            return_timestamps: true,
+            callback_function: generationTracker.callbackFunction.bind(generationTracker),
+            chunk_callback: generationTracker.chunkCallback.bind(generationTracker)
+        });
+    } catch (error) {
+        console.error('Transcription failed:', error);
+        sendLoadingMessage('error');
+        throw error;
+    }
+    
+    generationTracker.sendFinalResult();
 }
 
 async function load_model_callback(data) {
