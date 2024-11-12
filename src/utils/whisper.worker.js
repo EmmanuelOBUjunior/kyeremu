@@ -69,3 +69,10 @@ async function sendDownloadingMessage(file, progress, loaded, total) {
         total
     })
 }
+
+class GeneratoionTracker{
+    constructor(pipeline, stride_length_s){
+        this.pipeline = pipeline
+        this.stride_length_s = stride_length_s
+    }
+}
