@@ -88,7 +88,7 @@ class GenerationTracker {
   callbackFunction(beans){
     this.callbackFunctionCounter += 1
     if(this.callbackFunctionCounter % 10 !== 0) return
+    const bestBean = beans[0]
   }
 
-    const bestBean = 
 }
