@@ -23,4 +23,9 @@ self.addEventListener('message', async (e)=>{
 async function transcribe(audio){
     sendLoadingMessage('loading')
     let pipeline
+    try{
+        pipeline = await MyTranscriptionPipeline.getInstance(load_model_callback)
+    }catch(err){
+        console.log(err.message)
+    }
 }
