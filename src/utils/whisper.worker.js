@@ -23,43 +23,31 @@ self.addEventListener('message', async (event) => {
 })
 
 async function transcribe(audio) {
-    if (!audio) {
-        throw new Error('No audio input provided');
-    }
+    sendLoadingMessage('loading')
 
-    let pipeline;
-    
+    let pipeline
+
     try {
-        sendLoadingMessage('loading');
-        pipeline = await MyTranscriptionPipeline.getInstance(load_model_callback);
+        pipeline = await MyTranscriptionPipeline.getInstance(load_model_callback)
     } catch (err) {
-        console.error('Pipeline initialization failed:', err);
-        sendLoadingMessage('error');
-        throw err;
+        console.log(err.message)
     }
 
-    sendLoadingMessage('success');
+    sendLoadingMessage('success')
 
-    const stride_length_s = 5;
-    const generationTracker = new GenerationTracker(pipeline, stride_length_s);
-    
-    try {
-        await pipeline(audio, {
-            top_k: 0,
-            do_sample: false,
-            chunk_length: 30,
-            stride_length_s,
-            return_timestamps: true,
-            callback_function: generationTracker.callbackFunction.bind(generationTracker),
-            chunk_callback: generationTracker.chunkCallback.bind(generationTracker)
-        });
-    } catch (error) {
-        console.error('Transcription failed:', error);
-        sendLoadingMessage('error');
-        throw error;
-    }
-    
-    generationTracker.sendFinalResult();
+    const stride_length_s = 5
+
+    const generationTracker = new GenerationTracker(pipeline, stride_length_s)
+    await pipeline(audio, {
+        top_k: 0,
+        do_sample: false,
+        chunk_length: 30,
+        stride_length_s,
+        return_timestamps: true,
+        callback_function: generationTracker.callbackFunction.bind(generationTracker),
+        chunk_callback: generationTracker.chunkCallback.bind(generationTracker)
+    })
+    generationTracker.sendFinalResult()
 }
 
 async function load_model_callback(data) {
@@ -101,41 +89,24 @@ class GenerationTracker {
         self.postMessage({ type: MessageTypes.INFERENCE_DONE })
     }
 
-    async callbackFunction(beams) {
-        try {
-            this.callbackFunctionCounter += 1;
-            if (this.callbackFunctionCounter % 10 !== 0) {
-                return;
-            }
-
-            if (!beams || beams.length === 0) {
-                throw new Error('No beams available for processing');
-            }
-
-            const bestBeam = beams[0];
-            if (!this.pipeline?.tokenizer) {
-                throw new Error('Tokenizer not initialized');
-            }
-
-            let text = this.pipeline.tokenizer.decode(bestBeam.output_token_ids, {
-                skip_special_tokens: true
-            });
-
-            const result = {
-                text,
-                start: this.getLastChunkTimestamp(),
-                end: undefined
-            };
-
-            createPartialResultMessage(result);
-        } catch (error) {
-            console.error('Error in callback function:', error);
-            // Optionally notify the main thread of the error
-            self.postMessage({
-                type: MessageTypes.ERROR,
-                error: error.message
-            });
+    callbackFunction(beams) {
+        this.callbackFunctionCounter += 1
+        if (this.callbackFunctionCounter % 10 !== 0) {
+            return
         }
+
+        const bestBeam = beams[0]
+        let text = this.pipeline.tokenizer.decode(bestBeam.output_token_ids, {
+            skip_special_tokens: true
+        })
+
+        const result = {
+            text,
+            start: this.getLastChunkTimestamp(),
+            end: undefined
+        }
+
+        createPartialResultMessage(result)
     }
 
     chunkCallback(data) {
@@ -161,11 +132,8 @@ class GenerationTracker {
 
     getLastChunkTimestamp() {
         if (this.processed_chunks.length === 0) {
-            return 0;
+            return 0
         }
-        // Add missing return statement to get the last chunk's end time
-        const lastChunk = this.processed_chunks[this.processed_chunks.length - 1];
-        return lastChunk.end;
     }
 
     processChunk(chunk, index) {
