@@ -53,3 +53,10 @@ async function load_model_callback(data){
         sendDownloadingMessage(file, progress, loaded, total)
     }
 }
+
+function sendLoadingMessage(status){
+    self.postMessage({
+        type: MessageTypes.LOADING,
+        status
+    })
+}
