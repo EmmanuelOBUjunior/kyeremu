@@ -40,23 +40,24 @@ async function transcribe(audio) {
     stride_length_s,
     return_timestamps: true,
     return_function: generationTracker.callbackFunction.bind(generationTracker),
-    chunk_callback: generationTracker.chunk_callback
+    chunk_callback: generationTracker.chunk_callback,
   });
-  generationTracker.sendFinalResult()
+  generationTracker.sendFinalResult();
 }
 
-
-async function load_model_callback(data){
-    const {status} = data
-    if(status === 'progress'){
-        const {file, progress, loaded, total} = data
-        sendDownloadingMessage(file, progress, loaded, total)
-    }
+async function load_model_callback(data) {
+  const { status } = data;
+  if (status === "progress") {
+    const { file, progress, loaded, total } = data;
+    sendDownloadingMessage(file, progress, loaded, total);
+  }
 }
 
-function sendLoadingMessage(status){
-    self.postMessage({
-        type: MessageTypes.LOADING,
-        status
-    })
+function sendLoadingMessage(status) {
+  self.postMessage({
+    type: MessageTypes.LOADING,
+    status,
+  });
 }
+
+async function sendDownloadingMessage(file, progress, loaded, total) {}
