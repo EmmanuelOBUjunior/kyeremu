@@ -1,4 +1,4 @@
-export default function Transcribing({downloading}) {
+export default function Transcribing({ downloading }) {
   return (
     <div className="flex items-center flex-col justify-center gap-10 md-gap-14 pb-14 flex-1 text-center">
       <div className="flex flex-col gap-2 sm:gap-4">
@@ -12,7 +12,7 @@ export default function Transcribing({downloading}) {
       <div className="flex flex-col gap-2 sm:gap-4 max-w-[400px] mx-auto w-full">
         {[0, 1, 2].map((val) => {
           return (
-            <div 
+            <div
               key={val}
               className={
                 "rounded-full h-2 sm:h-3 bg-slate-400 loading " +
