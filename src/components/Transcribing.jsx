@@ -10,7 +10,7 @@ export default function Transcribing({downloading}) {
         </p>
       </div>
       <div className="flex flex-col gap-2 sm:gap-4 max-w-[400px] mx-auto w-full">
-        {[0, 1, 2].map((val) => {
+        {[0, 1, 2,3].map((val) => {
           return (
             <div
               className={
