@@ -33,7 +33,10 @@ function App() {
         case 'LOADING':
           setLoading(true)
           break;
-        default:
+        case 'RESULT':
+          setOutput(e.data.results)
+        case 'INFERENCE_DONE':
+          setFinished(true)
           break;
       }
     }
