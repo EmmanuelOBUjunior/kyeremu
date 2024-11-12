@@ -131,6 +131,8 @@ class GenerationTracker {
       end: Math.round(end) || Math.round(start + 0.9 + this.stride_length_s),
     };
   }
+}
+
   function createPartialResultMessage(results, isDone, completedUntilTimestamp) {
     self.postMessage({
         type: MessageTypes.RESULT,
@@ -139,4 +141,4 @@ class GenerationTracker {
         completedUntilTimestamp
     })
   }
-}
+
