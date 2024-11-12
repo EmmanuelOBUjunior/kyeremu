@@ -8,6 +8,9 @@ export default function Transcribing() {
             </h1>
             <p>{!downloading ? 'warming up cylinders' : 'core cylinders engaged'}</p>
         </div>
+        <div className="flex flex-col gap-2 sm:gap-4 max-w-[500px] mx-auto w-full">
+            {}
+        </div>
     </div>
   )
 }
