@@ -101,4 +101,7 @@ class GenerationTracker {
 
     createPartialResultMessage(result)
   }
+  chunkCallback(data){
+    this.chunk.push(data)
+  }
 }
