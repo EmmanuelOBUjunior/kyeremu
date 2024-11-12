@@ -109,12 +109,14 @@ class GenerationTracker {
       force_full_sequence: false,
     });
 
-    this.processed_chunks = chunks.map((chunk, index)=>{
-        return this.processed_chunks(chunk, index)
-    })
+    this.processed_chunks = chunks.map((chunk, index) => {
+      return this.processed_chunks(chunk, index);
+    });
 
     createResultMessage(
-        this.processed_chunks, false, this.getLastChunkTimestamp()
-    )
+      this.processed_chunks,
+      false,
+      this.getLastChunkTimestamp()
+    );
   }
 }
