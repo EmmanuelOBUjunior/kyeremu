@@ -16,7 +16,7 @@ function App() {
     setFile(null);
     setAudioStream(null);
   }
-  const isAvailable = file || audioStream;
+  const isAudioAvailable = file || audioStream;
 
   useEffect(() => {
     console.log(audioStream);
@@ -30,7 +30,7 @@ function App() {
           <Information />
         ) : loading ? (
           <Transcribing />
-        ) : isAvailable ? (
+        ) : isAudioAvailable ? (
           <FileDisplay
             handleAudioReset={handleAudioReset}
             file={file}
