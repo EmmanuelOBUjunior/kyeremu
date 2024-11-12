@@ -33,9 +33,11 @@ function App() {
           break;
         case "LOADING":
           setLoading(true);
+          console.log("LOADING")
           break;
         case "RESULT":
           setOutput(e.data.results);
+          console.log(e.data.results)
         case "INFERENCE_DONE":
           setFinished(true);
           break;
