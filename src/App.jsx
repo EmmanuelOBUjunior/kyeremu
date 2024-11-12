@@ -35,15 +35,6 @@ function App() {
         ) : (
           <Home setFile={setFile} setAudioStream={setAudioStream} />
         )}
-        {isAvailable ? (
-          <FileDisplay
-            handleAudioReset={handleAudioReset}
-            file={file}
-            audioStream={audioStream}
-          />
-        ) : (
-          <Home setFile={setFile} setAudioStream={setAudioStream} />
-        )}
       </section>
       <Footer />
     </div>
