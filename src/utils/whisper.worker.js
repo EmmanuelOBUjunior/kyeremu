@@ -74,7 +74,7 @@ class GenerationTracker {
   constructor(pipeline, stride_length_s) {
     this.pipeline = pipeline;
     this.stride_length_s = stride_length_s;
-    this.chunk = [];
+    this.chunks = [];
     this.time_precision =
       pipeline?.processor.feature_extractor.config.chunk_length /
       pipeline.model.config.max_source_positions;
@@ -102,6 +102,14 @@ class GenerationTracker {
     createPartialResultMessage(result)
   }
   chunkCallback(data){
-    this.chunk.push(data)
+    this.chunks.push(data)
+    const [text,{chunk}] = this.pipeline.tokenizer.decode_asr(
+        this.chunks,
+        {
+            time_precision: this.time_precision,
+            return_timestamps: true,
+            force_full_sequence = false
+        }
+    )
   }
 }
