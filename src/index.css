@@ -24,6 +24,11 @@ h1, h2, h3, .bold{
     animation: width 5s linear infinite;
     margin-right: auto
 }
+
+.loading1{
+    animation-delay: -4s;
+}
+
 .loading1{
     animation-delay: -4s;
 }
