@@ -78,10 +78,10 @@ class GenerationTracker {
     this.time_precision =
       pipeline?.processor.feature_extractor.config.chunk_length /
       pipeline.model.config.max_source_positions;
-    this.processed_chunks = []
-    this.callbackFunctionCounter = 0
+    this.processed_chunks = [];
+    this.callbackFunctionCounter = 0;
   }
-  sendFinalResult(){
-    self.postMessage({type: MessageTypes.INFERENCE_DONE})
+  sendFinalResult() {
+    self.postMessage({ type: MessageTypes.INFERENCE_DONE });
   }
 }
