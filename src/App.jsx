@@ -43,7 +43,7 @@ function App() {
 
     worker.current.addEventListener('message', onMessageReceived)
 
-    return () => worker.current.removeEventListner('')
+    return () => worker.current.removeEventListner('message', onMessageReceived)
 
   }, []);
 
