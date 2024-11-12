@@ -38,6 +38,7 @@ async function transcribe(audio) {
     do_sample: false,
     chunk_length: 30,
     stride_length_s,
-    return_timestamps: true
+    return_timestamps: true,
+    return_function: generationTracker.callbackFunction.bind(generationTracker)
   });
 }
