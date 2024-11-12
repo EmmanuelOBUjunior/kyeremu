@@ -7,7 +7,7 @@ export default function Information() {
       <h1 className="font-bold text-5xl sm:text-6xl md:text-7xl whitespace-nowrap">
         Your<span className="text-blue-400 bold"> Transcription</span>
       </h1>
-        <div className="flex mx-auto bg-white  shadow rounded-full overflow-hidden items center gap-2">
+        <div className="grid grid-cols-2 mx-auto bg-white  shadow rounded-full overflow-hidden items center">
             <button className={"px-4 py-1 font-medium duration-200 "+ (tab === 'transcription' ? 'bg-blue-500 text-white' : ' text-blue-400 hover:text-blue-600')}>Transcription</button>
             <button className={"px-4 py-1 font-medium duration-200" + (tab === 'translation' ? ' bg-blue-500 text-white': ' text-blue-400 hover:text-blue-600')}>Translation</button>
         </div>
