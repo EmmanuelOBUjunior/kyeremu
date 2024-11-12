@@ -6,6 +6,7 @@ export default function Transcribing() {
             <h1 className="font-semibold text-4xl sm:text-5xl md:text-6xl">
                 <span className="text-blue-400 bold">Transcribing</span>
             </h1>
+            <p>{!downloading ? 'warming up cylinders' : 'core cylinders engaged'}</p>
         </div>
     </div>
   )
