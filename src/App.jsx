@@ -17,7 +17,7 @@ function App() {
 
   useEffect(()=>{
     if(!worker.current){
-      worker.current = new Worker(new URL('./'))
+      worker.current = new Worker(new URL('./utils/whisper.worker.js'))
     }
   },[])
 
