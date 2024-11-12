@@ -42,4 +42,5 @@ async function transcribe(audio) {
     return_function: generationTracker.callbackFunction.bind(generationTracker),
     chunk_callback: generationTracker.chunk_callback
   });
+  generationTracker.sendFinalResult()
 }
