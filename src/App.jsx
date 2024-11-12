@@ -56,6 +56,7 @@ function App() {
   async function readAudiofrom(file) {
     const sampling_rate = 16000
     const audioCTX = new AudioContext({sampleRate: sampling_rate})
+    const response = await file.arrayBuffer()
   }
 
   return (
