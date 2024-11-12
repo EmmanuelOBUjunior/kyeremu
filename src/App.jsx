@@ -63,7 +63,7 @@ function App() {
   }
 
   async function handleFormSubmission() {
-    
+    if(!file && audioStream) return
   }
 
   return (
