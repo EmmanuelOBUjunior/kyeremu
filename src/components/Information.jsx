@@ -5,7 +5,7 @@ export default function Information() {
       <h1 className="font-bold text-5xl sm:text-6xl md:text-7xl whitespace-nowrap">
         Your<span className="text-blue-400 bold"> Transcription</span>
       </h1>
-        <div className="flex">
+        <div className="flex mx-auto bg-white border-2 border-solid border-blue-300 shadow rounded-full overflow-hidden items center gap-2">
             <button>Transcription</button>
             <button>Translation</button>
         </div>
