@@ -7,25 +7,26 @@ class MyTranscriptionPipeline {
   static instance = null;
 
   static async getInstance(progress_callback = null) {
-    if(this.instance === null){
-        this.instance = await pipeline(this.task, null, {progress_callback})
+    if (this.instance === null) {
+      this.instance = await pipeline(this.task, null, { progress_callback });
     }
-    return this.instance
+    return this.instance;
   }
 }
 
+self.addEventListener("message", async (e) => {
+  const { type, audio } = e.data;
+  if (type === MessageTypes.INFERENCE_REQUEST) await transcribe(audio);
+});
 
-self.addEventListener('message', async (e)=>{
-    const {type, audio} = e.data
-    if(type === MessageTypes.INFERENCE_REQUEST) await transcribe(audio)
-})
+async function transcribe(audio) {
+  sendLoadingMessage("loading");
+  let pipeline;
+  try {
+    pipeline = await MyTranscriptionPipeline.getInstance(load_model_callback);
+  } catch (err) {
+    console.log(err.message);
+  }
 
-async function transcribe(audio){
-    sendLoadingMessage('loading')
-    let pipeline
-    try{
-        pipeline = await MyTranscriptionPipeline.getInstance(load_model_callback)
-    }catch(err){
-        console.log(err.message)
-    }
+  sendLoadingMessage('success')
 }
