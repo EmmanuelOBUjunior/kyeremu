@@ -44,3 +44,8 @@ async function transcribe(audio) {
   });
   generationTracker.sendFinalResult()
 }
+
+
+async function load_model_callback(data){
+    const {status} = data
+}
