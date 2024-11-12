@@ -89,24 +89,41 @@ class GenerationTracker {
         self.postMessage({ type: MessageTypes.INFERENCE_DONE })
     }
 
-    callbackFunction(beams) {
-        this.callbackFunctionCounter += 1
-        if (this.callbackFunctionCounter % 10 !== 0) {
-            return
+    async callbackFunction(beams) {
+        try {
+            this.callbackFunctionCounter += 1;
+            if (this.callbackFunctionCounter % 10 !== 0) {
+                return;
+            }
+
+            if (!beams || beams.length === 0) {
+                throw new Error('No beams available for processing');
+            }
+
+            const bestBeam = beams[0];
+            if (!this.pipeline?.tokenizer) {
+                throw new Error('Tokenizer not initialized');
+            }
+
+            let text = this.pipeline.tokenizer.decode(bestBeam.output_token_ids, {
+                skip_special_tokens: true
+            });
+
+            const result = {
+                text,
+                start: this.getLastChunkTimestamp(),
+                end: undefined
+            };
+
+            createPartialResultMessage(result);
+        } catch (error) {
+            console.error('Error in callback function:', error);
+            // Optionally notify the main thread of the error
+            self.postMessage({
+                type: MessageTypes.ERROR,
+                error: error.message
+            });
         }
-
-        const bestBeam = beams[0]
-        let text = this.pipeline.tokenizer.decode(bestBeam.output_token_ids, {
-            skip_special_tokens: true
-        })
-
-        const result = {
-            text,
-            start: this.getLastChunkTimestamp(),
-            end: undefined
-        }
-
-        createPartialResultMessage(result)
     }
 
     chunkCallback(data) {
