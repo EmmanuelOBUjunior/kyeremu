@@ -35,5 +35,9 @@ async function transcribe(audio) {
   const generationTracker = new GenerationTraker(pipeline, stride_length_s);
   await pipeline(audio, {
     top_k: 0,
+    do_sample: false,
+    chunk_length: 30,
+    stride_length_s,
+    return_timestamps: true
   });
 }
