@@ -1,4 +1,5 @@
 import { pipeline } from "@xenova/transformers";
+import { MessageTypes } from "./presets";
 
 class MyTranscriptionPipeline {
   static task = "automatic-speech-recognition";
@@ -16,4 +17,5 @@ class MyTranscriptionPipeline {
 
 self.addEventListener('message', async (e)=>{
     const {type, audio} = e.data
+    if(type === MessageTypes.INFERENCE_REQUEST) await transcribe(audio)
 })
