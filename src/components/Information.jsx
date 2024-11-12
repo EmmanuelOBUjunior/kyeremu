@@ -8,8 +8,8 @@ export default function Information() {
         Your<span className="text-blue-400 bold"> Transcription</span>
       </h1>
         <div className="grid grid-cols-2 mx-auto bg-white  shadow rounded-full overflow-hidden items center">
-            <button className={"px-4 py-1 font-medium duration-200 "+ (tab === 'transcription' ? 'bg-blue-500 text-white' : ' text-blue-400 hover:text-blue-600')}>Transcription</button>
-            <button className={"px-4 py-1 font-medium duration-200" + (tab === 'translation' ? ' bg-blue-500 text-white': ' text-blue-400 hover:text-blue-600')}>Translation</button>
+            <button onClick={()=>setTab('transcription')} className={"px-4 py-1 font-medium duration-200 "+ (tab === 'transcription' ? 'bg-blue-500 text-white' : ' text-blue-400 hover:text-blue-600')}>Transcription</button>
+            <button onClick={()=>setTab('transcription')} className={"px-4 py-1 font-medium duration-200" + (tab === 'translation' ? ' bg-blue-500 text-white': ' text-blue-400 hover:text-blue-600')}>Translation</button>
         </div>
       </main>
   )
