@@ -131,7 +131,7 @@ class GenerationTracker {
       index,
       text: `${text.trim()}`,
       start: Math.round(start),
-      end: Math.round(end) || Math.round(start + 0.9 + this.stride_length_s),
+      end: Math.round(end) || Math.round(start + 0.9 * this.stride_length_s),
     };
   }
 }
