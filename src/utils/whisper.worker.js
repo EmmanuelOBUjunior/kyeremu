@@ -99,17 +99,14 @@ class GenerationTracker {
       end: undefined,
     };
 
-    createPartialResultMessage(result)
+    createPartialResultMessage(result);
   }
-  chunkCallback(data){
-    this.chunks.push(data)
-    const [text,{chunk}] = this.pipeline.tokenizer.decode_asr(
-        this.chunks,
-        {
-            time_precision: this.time_precision,
-            return_timestamps: true,
-            force_full_sequence : false
-        }
-    )
+  chunkCallback(data) {
+    this.chunks.push(data);
+    const [text, { chunk }] = this.pipeline.tokenizer.decode_asr(this.chunks, {
+      time_precision: this.time_precision,
+      return_timestamps: true,
+      force_full_sequence: false,
+    });
   }
 }
