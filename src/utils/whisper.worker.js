@@ -92,11 +92,13 @@ class GenerationTracker {
     let text = this.pipeline.tokenizer.decode(bestBean.output_token_ids, {
       skip_special_tokens: true,
     });
-    
+
     const result = {
       text,
       start: this.getLastChunkTimestamp(),
       end: undefined,
     };
+
+    createPartialResultMessage(result)
   }
 }
