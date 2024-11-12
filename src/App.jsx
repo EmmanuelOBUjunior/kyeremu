@@ -5,7 +5,7 @@ import Nav from "./components/Nav";
 import FileDisplay from "./components/FileDisplay";
 import Information from "./components/Information";
 import Transcribing from "./components/Transcribing";
-import {MessageTypes} from './utils/presets'
+import { MessageTypes } from "./utils/presets";
 
 function App() {
   const [file, setFile] = useState(null);
@@ -20,8 +20,7 @@ function App() {
   useEffect(() => {
     if (!worker.current) {
       worker.current = new Worker(
-        new URL("./utils/whisper.worker.js",
-        import.meta.url),
+        new URL("./utils/whisper.worker.js", import.meta.url),
         { type: "module" }
       );
     }
@@ -65,14 +64,14 @@ function App() {
 
   async function handleFormSubmission() {
     if (!file && audioStream) return;
-    let audio = await readAudiofrom(file ? file : audioStream)
-    const model_name =  `openai/whisper-tiny.en`
+    let audio = await readAudiofrom(file ? file : audioStream);
+    const model_name = `openai/whisper-tiny.en`;
 
     worker.current.postMessage({
       type: MessageTypes.INFERENCE_REQUEST,
       audio,
-      model_name
-    })
+      model_name,
+    });
   }
 
   return (
