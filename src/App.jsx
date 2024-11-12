@@ -57,6 +57,7 @@ function App() {
     const sampling_rate = 16000
     const audioCTX = new AudioContext({sampleRate: sampling_rate})
     const response = await file.arrayBuffer()
+    const decoded = await audioCTX.decodeAudioData(response)
   }
 
   return (
