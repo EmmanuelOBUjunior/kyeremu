@@ -3,7 +3,7 @@ import { MessageTypes } from "./presets";
 
 class MyTranscriptionPipeline {
   static task = "automatic-speech-recognition";
-  static model = 'openai/whisper-tiny.en'
+  static model = "openai/whisper-tiny.en";
   static instance = null;
 
   static async getInstance(progress_callback = null) {
@@ -135,19 +135,18 @@ class GenerationTracker {
   }
 }
 
-  function createResultMessage(results, isDone, completedUntilTimestamp) {
-    self.postMessage({
-        type: MessageTypes.RESULT,
-        results,
-        isDone,
-        completedUntilTimestamp
-    })
-  }
+function createResultMessage(results, isDone, completedUntilTimestamp) {
+  self.postMessage({
+    type: MessageTypes.RESULT,
+    results,
+    isDone,
+    completedUntilTimestamp,
+  });
+}
 
-  function createPartialResultMessage(result) {
-    self.postMessage({
-        type: MessageTypes.RESULT_PARTIAL,
-        result
-    })
-  }
-
+function createPartialResultMessage(result) {
+  self.postMessage({
+    type: MessageTypes.RESULT_PARTIAL,
+    result,
+  });
+}
