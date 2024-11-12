@@ -119,4 +119,9 @@ class GenerationTracker {
       this.getLastChunkTimestamp()
     );
   }
+
+  processChunk(chunk,index){
+    const {text, timestamp} = chunk
+    const {start, end} = timestamp
+  }
 }
