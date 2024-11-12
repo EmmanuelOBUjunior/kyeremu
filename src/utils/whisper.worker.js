@@ -32,7 +32,7 @@ async function transcribe(audio) {
 
   const stride_length_s = 5;
 
-  const generationTracker = new GenerationTraker(pipeline, stride_length_s);
+  const generationTracker = new GenerationTracker(pipeline, stride_length_s);
   await pipeline(audio, {
     top_k: 0,
     do_sample: false,
@@ -70,7 +70,7 @@ async function sendDownloadingMessage(file, progress, loaded, total) {
     })
 }
 
-class GeneratoionTracker{
+class GenerationTracker{
     constructor(pipeline, stride_length_s){
         this.pipeline = pipeline
         this.stride_length_s = stride_length_s
