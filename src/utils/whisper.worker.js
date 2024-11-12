@@ -78,5 +78,7 @@ class GenerationTracker {
     this.time_precision =
       pipeline?.processor.feature_extractor.config.chunk_length /
       pipeline.model.config.max_source_positions;
+    this.processed_chunks = []
+    this.
   }
 }
