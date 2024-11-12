@@ -108,5 +108,9 @@ class GenerationTracker {
       return_timestamps: true,
       force_full_sequence: false,
     });
+
+    this.processed_chunks = chunks.map((chunk, index)=>{
+        return this.processed_chunks(chunk, index)
+    })
   }
 }
