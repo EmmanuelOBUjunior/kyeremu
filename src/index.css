@@ -35,5 +35,5 @@ h1, h2, h3, .bold{
 
 
 @keyframes width{
-    
+  0%{width: 100%;}  
 }
