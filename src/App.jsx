@@ -65,6 +65,7 @@ function App() {
   async function handleFormSubmission() {
     if (!file && audioStream) return;
     let audio = await readAudiofrom(file ? file : audioStream)
+    const model_name =  `openai/whisper-tiny.en`
   }
 
   return (
