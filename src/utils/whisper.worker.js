@@ -112,5 +112,9 @@ class GenerationTracker {
     this.processed_chunks = chunks.map((chunk, index)=>{
         return this.processed_chunks(chunk, index)
     })
+
+    createResultMessage(
+        this.processed_chunks, false, this.getLastChunkTimestamp()
+    )
   }
 }
