@@ -23,7 +23,16 @@ function App() {
       );
     }
 
-    const onMessageReceived = {}
+    const onMessageReceived = async (e) =>{
+      switch (e.data.type) {
+        case 'DOWNLOADING':
+          setDownloading(true)
+          break;
+      
+        default:
+          break;
+      }
+    }
 
   }, []);
 
