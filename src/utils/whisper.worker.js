@@ -61,20 +61,22 @@ function sendLoadingMessage(status) {
 }
 
 async function sendDownloadingMessage(file, progress, loaded, total) {
-    self.postMessage({
-        type: MessageTypes.DOWNLOADING,
-        file,
-        progress,
-        loaded,
-        total
-    })
+  self.postMessage({
+    type: MessageTypes.DOWNLOADING,
+    file,
+    progress,
+    loaded,
+    total,
+  });
 }
 
-class GenerationTracker{
-    constructor(pipeline, stride_length_s){
-        this.pipeline = pipeline
-        this.stride_length_s = stride_length_s
-        this.chunk = []
-        this.time_precision = pipeline?.processor.feature_extractor.config.chunk_length / pipeline.model.config.max_source_positions
-    }
+class GenerationTracker {
+  constructor(pipeline, stride_length_s) {
+    this.pipeline = pipeline;
+    this.stride_length_s = stride_length_s;
+    this.chunk = [];
+    this.time_precision =
+      pipeline?.processor.feature_extractor.config.chunk_length /
+      pipeline.model.config.max_source_positions;
+  }
 }
