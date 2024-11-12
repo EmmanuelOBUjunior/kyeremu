@@ -29,4 +29,8 @@ async function transcribe(audio) {
   }
 
   sendLoadingMessage('success')
+
+  const stride_length_s = 5
+
+  const generationTracker = new GenerationTraker(pipeline, stride_length_s)
 }
