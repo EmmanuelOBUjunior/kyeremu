@@ -66,7 +66,7 @@ function App() {
 
   async function handleFormSubmission() {
     if (!file && !audioStream) {
-      console.log("File or Audio Stream Not Found")
+
       return
     };
     let audio = await readAudiofrom(file ? file : audioStream);
