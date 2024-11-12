@@ -46,7 +46,7 @@ function App() {
 
     return () =>
       worker.current.removeEventListner("message", onMessageReceived);
-  }, []);
+  });
 
   function handleAudioReset() {
     setFile(null);
