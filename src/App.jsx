@@ -19,9 +19,12 @@ function App() {
 
   useEffect(() => {
     if (!worker.current) {
-      worker.current = new Worker(new URL('./utils/whisper.worker.js', import.meta.url), {
-        type: 'module'
-      })
+      worker.current = new Worker(
+        new URL("./utils/whisper.worker.js", import.meta.url),
+        {
+          type: "module",
+        }
+      );
     }
 
     const onMessageReceived = async (e) => {
