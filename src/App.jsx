@@ -25,27 +25,27 @@ function App() {
       );
     }
 
-    const onMessageReceived = async (e) =>{
+    const onMessageReceived = async (e) => {
       switch (e.data.type) {
-        case 'DOWNLOADING':
-          setDownloading(true)
-          console.log("DOWNLOADING")
+        case "DOWNLOADING":
+          setDownloading(true);
+          console.log("DOWNLOADING");
           break;
-        case 'LOADING':
-          setLoading(true)
+        case "LOADING":
+          setLoading(true);
           break;
-        case 'RESULT':
-          setOutput(e.data.results)
-        case 'INFERENCE_DONE':
-          setFinished(true)
+        case "RESULT":
+          setOutput(e.data.results);
+        case "INFERENCE_DONE":
+          setFinished(true);
           break;
       }
-    }
+    };
 
-    worker.current.addEventListener('message', onMessageReceived)
+    worker.current.addEventListener("message", onMessageReceived);
 
-    return () => worker.current.removeEventListner('message', onMessageReceived)
-
+    return () =>
+      worker.current.removeEventListner("message", onMessageReceived);
   }, []);
 
   function handleAudioReset() {
@@ -54,16 +54,16 @@ function App() {
   }
 
   async function readAudiofrom(file) {
-    const sampling_rate = 16000
-    const audioCTX = new AudioContext({sampleRate: sampling_rate})
-    const response = await file.arrayBuffer()
-    const decoded = await audioCTX.decodeAudioData(response)
-    const audio = decoded.getChannelData(0)
-    return audio
+    const sampling_rate = 16000;
+    const audioCTX = new AudioContext({ sampleRate: sampling_rate });
+    const response = await file.arrayBuffer();
+    const decoded = await audioCTX.decodeAudioData(response);
+    const audio = decoded.getChannelData(0);
+    return audio;
   }
 
   async function handleFormSubmission() {
-    if(!file && audioStream) return
+    if (!file && audioStream) return;
   }
 
   return (
