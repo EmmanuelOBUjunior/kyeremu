@@ -1,4 +1,4 @@
-export default function FileDisplay({ file, audioStream, handleAudioReset }) {
+export default function FileDisplay({ file, audioStream, handleAudioReset, handleFormSubmission }) {
   console.log("File:", file);
   return (
     <main className="flex-1 p-4 gap-3 sm:gap-4 md:gap-5 flex flex-col justify-center text-center pb-20 w-72 sm:w-96 mx-auto max-w-full">
