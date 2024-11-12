@@ -60,4 +60,8 @@ function sendLoadingMessage(status) {
   });
 }
 
-async function sendDownloadingMessage(file, progress, loaded, total) {}
+async function sendDownloadingMessage(file, progress, loaded, total) {
+    self.postMessage({
+        
+    })
+}
