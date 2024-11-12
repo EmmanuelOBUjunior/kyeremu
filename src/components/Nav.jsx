@@ -7,10 +7,10 @@ export default function Nav() {
       Kyere<span className="text-blue-400 bold">Mu</span>
     </h1>
     </a>
-    <button className="flex items-center gap-2 specialBtn px-3 text-sm py-2 rounded-lg text-blue-400">
+    <a className="flex items-center gap-2 specialBtn px-3 text-sm py-2 rounded-lg text-blue-400">
       <p>New</p>
       <i className="fa-solid fa-plus"></i>
-    </button>
+    </a>
   </nav>
   )
 }
