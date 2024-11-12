@@ -16,7 +16,9 @@ function App() {
 
 
   useEffect(()=>{
-    
+    if(!worker.current){
+      worker.current = new Worker(new URL('./'))
+    }
   },[])
 
   function handleAudioReset() {
