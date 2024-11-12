@@ -123,5 +123,12 @@ class GenerationTracker {
   processChunk(chunk,index){
     const {text, timestamp} = chunk
     const {start, end} = timestamp
+
+    return{
+        index,
+        text: `${text.trim()}`,
+        start: Math.round(start),
+        end: Math.round(end) || Math.round()
+    }
   }
 }
