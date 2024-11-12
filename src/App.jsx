@@ -18,9 +18,7 @@ function App() {
   }
   const isAudioAvailable = file || audioStream;
 
-  useEffect(() => {
-    console.log(audioStream);
-  }, [audioStream]);
+
 
   return (
     <div className="flex flex-col max-w-[1000px] mx-auto w-full">
