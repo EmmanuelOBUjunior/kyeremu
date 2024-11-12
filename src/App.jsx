@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import FileDisplay from "./components/FileDisplay";
 import Information from "./components/Information";
 import Transcribing from "./components/Transcribing";
+import {MessageTypes} from './utils/presets'
 
 function App() {
   const [file, setFile] = useState(null);
