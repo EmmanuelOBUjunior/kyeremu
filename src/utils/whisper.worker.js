@@ -38,41 +38,36 @@ self.addEventListener("message", async (event) => {
 });
 
 async function transcribe(audio) {
-  sendLoadingMessage("loading");
+    try {
+        sendLoadingMessage('loading');
+        console.log('Starting transcription...');
+        
+        const pipeline = await MyTranscriptionPipeline.getInstance(load_model_callback);
+        if (!pipeline) {
+            throw new Error('Pipeline initialization failed');
+        }
 
-  let pipeline;
+        sendLoadingMessage('success');
+        console.log('Pipeline ready, processing audio...');
 
-  try {
-    pipeline = await MyTranscriptionPipeline.getInstance(load_model_callback);
-    if (!pipeline) {
-      console.log("Failed to initialize pipeline");
-      return;
+        const stride_length_s = 5;
+        const generationTracker = new GenerationTracker(pipeline, stride_length_s);
+        
+        await pipeline(audio, {
+            top_k: 0,
+            do_sample: false,
+            chunk_length: 30,
+            stride_length_s,
+            return_timestamps: true,
+            callback_function: generationTracker.callbackFunction.bind(generationTracker),
+            chunk_callback: generationTracker.chunkCallback.bind(generationTracker)
+        });
+
+        generationTracker.sendFinalResult();
+    } catch (error) {
+        console.error('Transcription error:', error);
+        sendLoadingMessage('error', error.message);
     }
-  } catch (err) {
-    console.error("Pipeline initialization error: ", err);
-    return;
-  }
-
-  sendLoadingMessage("success");
-
-  const stride_length_s = 5;
-
-  try {
-    const generationTracker = new GenerationTracker(pipeline, stride_length_s);
-    await pipeline(audio, {
-      top_k: 0,
-      do_sample: false,
-      chunk_length: 30,
-      stride_length_s,
-      return_timestamps: true,
-      callback_function:
-        generationTracker.callbackFunction.bind(generationTracker),
-      chunk_callback: generationTracker.chunkCallback.bind(generationTracker),
-    });
-    generationTracker.sendFinalResult();
-  } catch (err) {
-    console.error("Transcription Error: ", err);
-  }
 }
 
 async function load_model_callback(data) {
