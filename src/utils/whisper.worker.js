@@ -1,5 +1,11 @@
-import {pipeline} from "@xenova/transformers"
+import {pipeline, env} from "@xenova/transformers"
 import { MessageTypes } from "./presets";
+
+
+// Configure transformers.js to use local cache
+env.cacheDir = './models';
+env.allowRemoteModels = true;  // Allow downloading models if not in cache
+env.backends.onnx.wasm.wasmPaths = '/node_modules/@xenova/transformers/dist/onnx-wasm/';
 
 class MyTranscriptionPipeline {
     static task = 'automatic-speech-recognition';
