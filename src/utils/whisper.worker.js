@@ -29,14 +29,20 @@ async function transcribe(audio) {
 
     try {
         pipeline = await MyTranscriptionPipeline.getInstance(load_model_callback)
+        if(!pipeline){
+            console.log("Failed to initialize pipeline")
+            return
+        }
     } catch (err) {
-        console.log(err.message)
+        console.error("Pipeline initialization error: ",err)
+        return
     }
 
     sendLoadingMessage('success')
 
     const stride_length_s = 5
 
+    try{
     const generationTracker = new GenerationTracker(pipeline, stride_length_s)
     await pipeline(audio, {
         top_k: 0,
@@ -48,6 +54,9 @@ async function transcribe(audio) {
         chunk_callback: generationTracker.chunkCallback.bind(generationTracker)
     })
     generationTracker.sendFinalResult()
+}catch(err){
+    console.error("Transcription Error: ", err)
+}
 }
 
 async function load_model_callback(data) {
