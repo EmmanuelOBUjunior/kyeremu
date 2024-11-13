@@ -96,7 +96,7 @@ class GenerationTracker {
         }
 
         const bestBeam = beams[0]
-        let text = this.pipeline.tokenizer.decode(bestBeam.output_token_ids, {
+        let text = await this.pipeline.tokenizer.decode(bestBeam.output_token_ids, {
             skip_special_tokens: true
         })
 
