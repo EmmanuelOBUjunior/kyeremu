@@ -92,13 +92,13 @@ function sendLoadingMessage(status, error = null) {
 }
 
 async function sendDownloadingMessage(file, progress, loaded, total) {
-  self.postMessage({
-    type: MessageTypes.DOWNLOADING,
-    file,
-    progress,
-    loaded,
-    total,
-  });
+    self.postMessage({
+        type: MessageTypes.DOWNLOADING,
+        file,
+        progress,
+        loaded,
+        total
+    });
 }
 
 class GenerationTracker {
