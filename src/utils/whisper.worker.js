@@ -86,6 +86,9 @@ async function sendDownloadingMessage(file, progress, loaded, total) {
 
 class GenerationTracker {
     constructor(pipeline, stride_length_s) {
+        if(!pipeline){
+            console.log("Pipeline is required to GenerationTracker")
+        }
         this.pipeline = pipeline
         this.stride_length_s = stride_length_s
         this.chunks = []
