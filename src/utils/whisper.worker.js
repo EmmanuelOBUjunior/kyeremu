@@ -71,11 +71,16 @@ async function transcribe(audio) {
 }
 
 async function load_model_callback(data) {
-  const { status } = data;
-  if (status === "progress") {
-    const { file, progress, loaded, total } = data;
-    sendDownloadingMessage(file, progress, loaded, total);
-  }
+    try {
+        const { status } = data;
+        if (status === 'progress') {
+            const { file, progress, loaded, total } = data;
+            console.log(`Downloading ${file}: ${progress}% (${loaded}/${total})`);
+            sendDownloadingMessage(file, progress, loaded, total);
+        }
+    } catch (error) {
+        console.error('Load model callback error:', error);
+    }
 }
 
 function sendLoadingMessage(status) {
