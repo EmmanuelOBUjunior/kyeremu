@@ -2,19 +2,32 @@ import {pipeline} from "@xenova/transformers"
 import { MessageTypes } from "./presets";
 
 class MyTranscriptionPipeline {
-  static task = "automatic-speech-recognition";
-  static model = "Xenova/whisper-tiny.en";
-  static transcriber = null;
+    static task = 'automatic-speech-recognition';
+    static model = 'Xenova/whisper-tiny.en';  // Use Xenova's hosted model instead of OpenAI's
+    static instance = null;
 
-  static async getInstance(progress_callback = null) {
-    if (this.transcriber === null) {
-      this.transcriber = await pipeline(this.task, this.model, {
-        progress_callback,
-      });
+    static async getInstance(progress_callback = null) {
+        if (this.instance === null) {
+            try {
+                // Configure the pipeline
+                const pipelineConfig = {
+                    progress_callback,
+                    revision: 'main',
+                    quantized: true,
+                    cache_dir: './models',
+                    local_files_only: false
+                };
+
+                console.log('Starting pipeline initialization...');
+                this.instance = await pipeline(this.task, this.model, pipelineConfig);
+                console.log('Pipeline initialized successfully');
+            } catch (error) {
+                console.error('Detailed pipeline error:', error);
+                throw new Error(`Model initialization failed: ${error.message}`);
+            }
+        }
+        return this.instance;
     }
-
-    return this.transcriber;
-  }
 }
 
 self.addEventListener("message", async (event) => {
