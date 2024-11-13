@@ -9,6 +9,7 @@ export default defineConfig({
       "Cross-Origin-Embedder-Policy": "require-corp",
       "Cross-Origin-Opener-Policy": "same-origin",
     },
+    cors: true
   },
   optimizeDeps: {
     exclude: ["@xenova/transformers"],
