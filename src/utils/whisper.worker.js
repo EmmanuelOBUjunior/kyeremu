@@ -1,4 +1,4 @@
-import { pipeline } from "@xenova/transformers";
+import { pipeline } from "@huggingface/transformers";
 import { MessageTypes } from "./presets";
 
 class MyTranscriptionPipeline {
