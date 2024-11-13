@@ -20,8 +20,6 @@ class MyTranscriptionPipeline {
                     progress_callback,
                     revision: 'main',
                     quantized: true,
-                    cache_dir: './models',
-                    local_files_only: false
                 };
 
                 console.log('Starting pipeline initialization...');
