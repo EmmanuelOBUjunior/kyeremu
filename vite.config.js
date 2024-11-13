@@ -11,6 +11,9 @@ export default defineConfig({
     },
     cors: true
   },
+  worker:{
+    format: 'es'
+  },
   optimizeDeps: {
     exclude: ["@xenova/transformers"],
   },
