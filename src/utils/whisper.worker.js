@@ -83,11 +83,12 @@ async function load_model_callback(data) {
     }
 }
 
-function sendLoadingMessage(status) {
-  self.postMessage({
-    type: MessageTypes.LOADING,
-    status,
-  });
+function sendLoadingMessage(status, error = null) {
+    self.postMessage({
+        type: MessageTypes.LOADING,
+        status,
+        error
+    });
 }
 
 async function sendDownloadingMessage(file, progress, loaded, total) {
