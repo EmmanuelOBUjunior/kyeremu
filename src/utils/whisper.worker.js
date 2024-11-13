@@ -110,6 +110,7 @@ class GenerationTracker {
   }
 
   callbackFunction(beams) {
+    if(!beams || !beams.length) return
     this.callbackFunctionCounter += 1;
     if (this.callbackFunctionCounter % 10 !== 0) {
       return;
