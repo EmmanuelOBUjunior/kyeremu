@@ -1,15 +1,21 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // optimizeDeps:{
-  //   exclude: ['@xenova/transformers']
-  // },
-  // build:{
-  //   commonjsOptions:{
-  //     include: [/@xenova\/transformers/]
-  //   }
-  // }
-})
+  server: {
+    headers: {
+      "Cross-Origin-Embedder-Policy": "require-corp",
+      "Cross-Origin-Opener-Policy": "same-origin",
+    },
+  },
+  optimizeDeps: {
+    exclude: ["@xenova/transformers"],
+  },
+  build: {
+    commonjsOptions: {
+      include: [/@xenova\/transformers/],
+    },
+  },
+});
