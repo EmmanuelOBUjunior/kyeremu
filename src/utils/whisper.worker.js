@@ -93,7 +93,9 @@ class GenerationTracker {
         this.stride_length_s = stride_length_s
         this.chunks = []
         //safe access to nested properties with fallbacks
-        this.time_precision = pipeline?.processor.feature_extractor.config.chunk_length / pipeline.model.config.max_source_positions
+        const chunk_length = pipeline.processor?.feature_extractor?.config?.chunk_length || 30
+        const max_source_positions = pipeline.processor?.feature_extractor?.config?.chunk_length || 30
+        this.time_precision = chunk_length / max_source_positions
         this.processed_chunks = []
         this.callbackFunctionCounter = 0
     }
