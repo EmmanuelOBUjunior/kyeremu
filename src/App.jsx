@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     if (!worker.current) {
       worker.current = new Worker(
-        new URL("", import.meta.url),
+        new URL("./utils/whisper.worker.js", import.meta.url),
         {
           type: "module",
         }
