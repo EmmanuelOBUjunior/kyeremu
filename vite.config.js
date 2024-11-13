@@ -16,6 +16,7 @@ export default defineConfig({
   },
   optimizeDeps: {
     exclude: ["@xenova/transformers"],
+    include: ['onnxruntime-web']
   },
   build: {
     commonjsOptions: {
