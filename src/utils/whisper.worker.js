@@ -4,16 +4,16 @@ import { MessageTypes } from "./presets";
 class MyTranscriptionPipeline {
   static task = "automatic-speech-recognition";
   static model = "Xenova/whisper-tiny.en";
-  static instance = null;
+  static transcriber = null;
 
   static async getInstance(progress_callback = null) {
-    if (this.instance === null) {
-      this.instance = await pipeline(this.task, this.model, {
+    if (this.transcriber === null) {
+      this.transcriber = await pipeline(this.task, this.model, {
         progress_callback,
       });
     }
 
-    return this.instance;
+    return this.transcriber;
   }
 }
 
